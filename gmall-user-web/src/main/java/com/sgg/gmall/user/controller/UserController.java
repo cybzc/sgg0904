@@ -1,12 +1,11 @@
-package com.gmall.user.controller;
+package com.sgg.gmall.user.controller;
 
-import com.gmall.user.bean.UmsMember;
-import com.gmall.user.bean.UmsMemberReceiveAddress;
-import com.gmall.user.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.alibaba.dubbo.config.annotation.Reference;
+import com.gmall.bean.UmsMember;
+import com.gmall.bean.UmsMemberReceiveAddress;
+import com.gmall.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -14,7 +13,8 @@ import java.util.List;
 @Controller
 public class UserController {
 
-    @Autowired
+    /*这里不用autowire 因为不在同一个容器里*/
+    @Reference
     UserService userService;
 
     @RequestMapping("user")
